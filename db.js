@@ -1,15 +1,16 @@
 const { v4 } = require('uuid');
 const fs = require("fs");
+const { FILE } = require('dns');
 const FILE_PATH = require("path").join(__dirname, "db.json");
 
 global.users = [];
 
 function findUsers() {
-    try {
-        return require("./db.json");
-    } catch (e) {
-        return [];
-    }
+
+    if(!fs.existsSync(FILE_PATH)) { return []; }
+
+    const rawData = fs.readFileSync(FILE_PATH);
+    return JSON.parse(rawData);
 }
 
 function addUser(user) {

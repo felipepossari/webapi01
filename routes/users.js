@@ -7,6 +7,14 @@ router.get('/', (req, res, next) => {
   res.json(db.findUsers());
 });
 
+router.get('/:id', (req, res, next) => {
+  const user = db.findUserById(req.params.id);
+  if (!user) {
+    return res.status(404).send();
+  }
+  res.json(user);
+});
+
 router.post('/', (req, res, next) => {
   const user = db.addUser(req.body);
   res.json(user);
