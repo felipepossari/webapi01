@@ -9,6 +9,7 @@ function findUsers(){
 function addUser(user){
     user.id = v4();
     global.users.push(user);
+    return user;
 }
 
 function findUserById(id){
@@ -16,8 +17,10 @@ function findUserById(id){
 }
 
 function updateUser(id, user){
+    user.id = id;
     const index = global.users.findIndex(user => user.id === id);
     global.users[index] = user;
+    return user;
 }
 
 function deleteUser(id){
