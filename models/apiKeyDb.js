@@ -1,7 +1,7 @@
 const {v4} = require('uuid');
 const fs = require("fs");
 const { FILE } = require('dns');
-const FILE_PATH = require("path").join(__dirname, "apiKeyDb.json");
+const FILE_PATH = require("path").join(__dirname, "..", "data", "apiKeyDb.json");
 
 function findKeys() {
     if(!fs.existsSync(FILE_PATH)) { return []; }
