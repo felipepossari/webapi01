@@ -1,9 +1,7 @@
 const { v4 } = require('uuid');
 const fs = require("fs");
 const { FILE } = require('dns');
-const FILE_PATH = require("path").join(__dirname, "db.json");
-
-global.users = [];
+const FILE_PATH = require("path").join(__dirname, "userDb.json");
 
 function findUsers() {
 
